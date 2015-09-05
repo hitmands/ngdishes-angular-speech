@@ -11,7 +11,6 @@
         suffix: '.json'
       })
       .determinePreferredLanguage(function() {
-        console.log('$translateProvider.determinePreferredLanguage', defaultLocale);
         return defaultLocale.iso;
       });
   }

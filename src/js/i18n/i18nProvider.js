@@ -4,17 +4,19 @@
   function I18nServiceProviderFactory(tmhDynamicLocaleProvider) {
     tmhDynamicLocaleProvider.localeLocationPattern('/vendor/angular-i18n/angular-locale_{{locale}}.js');
 
-    var provider = this;
-    var _availableLanguages = FSYS.i18n.languages;
-    var _availableIsoList = (function() {
+    var AVAILABLE_LANGUAGES = FSYS.i18n.languages;
+    var DEFAULT_LANGUAGE = AVAILABLE_LANGUAGES[0];
+    var DEFAULT_ISO_LIST = (function() {
       var res = [];
 
-      for(var i = 0; i < _availableLanguages.length; i++) {
-        res.push(_availableLanguages[i].iso);
+      for(var i = 0; i < AVAILABLE_LANGUAGES.length; i++) {
+        res.push(AVAILABLE_LANGUAGES[i].iso);
       }
 
       return res;
     }).call(this);
+
+    var provider = this;
     var current = null;
 
 
@@ -23,7 +25,7 @@
      * @returns {Object}
      */
     provider.getDefault = function() {
-      return _availableLanguages[0];
+      return DEFAULT_LANGUAGE;
     };
 
     /**
@@ -31,7 +33,7 @@
      * @returns {Array<string>}
      */
     provider.getUrlParams = function() {
-      return _availableIsoList;
+      return DEFAULT_ISO_LIST;
     };
 
     /**
@@ -40,7 +42,7 @@
      * @returns {Object|Array<Object>|null}
      */
     provider.get = function(iso) {
-      var list = _availableLanguages;
+      var list = AVAILABLE_LANGUAGES;
 
       if(!angular.isString(iso)) {
         return list;
@@ -60,7 +62,7 @@
 
       var i18nService = (function() {
         /**
-         *
+         * @singleton
          * @constructor
          */
         function I18nService() {}
@@ -71,7 +73,7 @@
          * @returns {boolean}
          */
         I18nService.prototype.supports = function(iso) {
-          return (_availableIsoList.indexOf(iso) !== -1);
+          return (DEFAULT_ISO_LIST.indexOf(iso) !== -1);
         };
 
         /**
