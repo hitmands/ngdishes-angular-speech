@@ -79,12 +79,12 @@ module.exports = function() {
     input: path.join(__dirname, '..', 'src/utils/excel/i18n.xlsx'),
     languages: [
       {
-        name: 'italiano',
-        iso: 'it'
-      },
-      {
         name: 'english',
         iso: 'en'
+      },
+      {
+        name: 'italiano',
+        iso: 'it'
       }
     ]
   };
