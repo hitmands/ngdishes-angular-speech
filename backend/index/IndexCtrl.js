@@ -71,10 +71,21 @@
       .then(function(context) {
         var userLang = req.headers["accept-language"].split(',').shift();
         var defaultLang = frontendConfigs.i18n.languages[0];
+        var list = frontendConfigs.i18n.languages;
+        var lang = userLang || defaultLang.iso;
 
-        context.lang = userLang || (defaultLang && defaultLang.iso) || 'en';
+
+        list.sort(function(item) {
+          if(item.iso === lang) {
+            return -1;
+          }
+
+          return 1;
+        });
+
+        context.lang = list[0].iso;
         FSYS.i18n = {
-          languages : frontendConfigs.i18n.languages
+          languages : list
         };
 
         return context;
