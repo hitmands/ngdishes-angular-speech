@@ -27,14 +27,6 @@
     };
 
     /**
-     * Returns the list of supported languages
-     * @returns {Array<Object>}
-     */
-    provider.getAvailableList = function() {
-      return _availableLanguages;
-    };
-
-    /**
      * Returns the list of supported ISO Code
      * @returns {Array<string>}
      */
@@ -48,7 +40,7 @@
      * @returns {Object|Array<Object>|null}
      */
     provider.get = function(iso) {
-      var list = provider.getAvailableList();
+      var list = _availableLanguages;
 
       if(!angular.isString(iso)) {
         return list;
