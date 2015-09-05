@@ -54,7 +54,7 @@
     'ngProgress',
     'ui.bootstrap',
     FSYS.APP + '.auth',
-    FSYS.APP + '.locale',
+    FSYS.APP + '.i18n',
     FSYS.APP + '.errors'
   ];
 

@@ -10,8 +10,8 @@
       abstract: true,
       resolve: {
         currentLocale: /* @ngInject */ function($stateParams, I18n, $state, $log) {
-          return I18n.resolveByUrlParam($stateParams.iso).catch(function(error) {
-            $log.error('ERROR:I18n.resolveByUrlParam', error);
+          return I18n.use($stateParams.iso).catch(function(error) {
+            $log.error('PROMISE_ERROR:I18n.use', error);
             return $state.go('app.errors.500');
           });
         }
@@ -26,13 +26,13 @@
   }
 
   /* @ngInject */
-  function LocaleCtrl(currentLocale) {
+  function LocaleCtrl() {
 //  var vm = this;
 
   }
 
   angular
-    .module(FSYS.APP + '.locale')
+    .module(FSYS.APP + '.i18n')
     .config(LocaleConfig)
     .controller('LocaleCtrl', LocaleCtrl)
   ;

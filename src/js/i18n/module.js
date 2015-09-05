@@ -16,7 +16,7 @@
   ];
 
   angular
-    .module(FSYS.APP + '.locale', dependencies)
+    .module(FSYS.APP + '.i18n', dependencies)
     .config(LocaleModuleConfig)
     .run(LocaleModuleRun)
   ;

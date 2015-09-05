@@ -1,7 +1,7 @@
 (function() {
 
   /* @ngInject */
-  function AngularTranslateConfig($translateProvider, I18nProvider) {
+  function AngularTranslateConfig($translateProvider, I18nProvider, $injector) {
     var defaultLocale = I18nProvider.getDefault();
 
     $translateProvider
@@ -11,17 +11,13 @@
         suffix: '.json'
       })
       .determinePreferredLanguage(function() {
-        return defaultLocale;
+        console.log('$translateProvider.determinePreferredLanguage', defaultLocale);
+        return defaultLocale.iso;
       });
   }
 
   /* @ngInject */
-  function AngularTranslateRun($rootScope, $translate, I18n) {
-    $rootScope.$on('$translateChangeSuccess', function(event, locale) {
-      console.log('%cTRANSLATE SET', 'color: #EB6528; font-weight:bold;', locale);
-    });
-  }
-
+  function AngularTranslateRun(I18n) {}
 
   angular
     .module(FSYS.APP)
