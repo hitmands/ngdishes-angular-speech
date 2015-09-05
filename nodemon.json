@@ -1,0 +1,15 @@
+{
+   "restartable": "rs",
+   "verbose": true,
+   "ext": "ejs js json",
+   "watch" : [
+      "public/build/includes/**/*.*",
+      "backend/**/*.*",
+      "modules/**/*.*",
+      "config/**/*.*",
+      "package.json"
+   ],
+   "env": {
+      "NODE_ENV": "development"
+   }
+}

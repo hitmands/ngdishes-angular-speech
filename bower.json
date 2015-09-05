@@ -1,0 +1,44 @@
+{
+  "name": "yoox-angular-speech",
+  "version": "1.0.0",
+  "homepage": "https://github.com/hitmands/yoox-angular-speech",
+  "authors": [
+    "Hitmands <gius.mand.developer@gmail.com>"
+  ],
+  "description": "A Simple 30' Angular Speech",
+  "main": "server.js",
+  "keywords": [
+    "AngularJS",
+    "Grunt"
+  ],
+  "license": "ISC",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "./src/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.4.5",
+    "moment": "~2.10.6",
+    "angular-ui-router": "~0.2.15",
+    "modernizr": "~2.8.3",
+    "angular-translate-loader-static-files": "~2.7.2",
+    "angular-animate": "~1.4.5",
+    "angular-translate": "~2.7.2",
+    "angular-bootstrap": "~0.13.4",
+    "angular-sanitize": "~1.4.5",
+    "ngprogress": "~1.1.2",
+    "lodash": "~3.10.1",
+    "angular-i18n": "~1.4.5",
+    "angular-dynamic-locale": "~0.1.27"
+  },
+  "devDependencies": {
+    "bootstrap-sass": "~3.3.5"
+  },
+  "resolutions": {
+    "angular": "1.4.5"
+  }
+}

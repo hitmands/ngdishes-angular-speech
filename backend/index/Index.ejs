@@ -1,0 +1,17 @@
+<!doctype html>
+<!--[if lt IE 9]><html lang="<%= lang %>" class="no-js ie old-ie <%- html.classes %>" data-ng-app="<%= app %>" data-ng-strict-di><![endif]-->
+<!--[if IE 9]><html lang="<%= lang %>" class="no-js ie ie-9 <%- html.classes %>" data-ng-app="<%= app %>" data-ng-strict-di><![endif]-->
+<!--[if gt 9]><!--><html lang="<%= lang %>" class="no-js modern-browser <%- html.classes %>" data-ng-app="<%= app %>" data-ng-strict-di><!--<![endif]-->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-ng-bind="$state.current.data.pageTitle | translate"></title>
+<base href="/" />
+<script type="text/javascript" id="FSYS">(function(a) {a.FSYS = <%- FSYS %>;})(window);</script>
+<%- html.head %>
+</head>
+<body>
+<%- html.body %>
+<%- html.footer %>
+</body>
+</html>

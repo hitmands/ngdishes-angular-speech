@@ -1,0 +1,3 @@
+*.min.js
+**/*/bower_components/**/*
+**/*/vendor/**/*
