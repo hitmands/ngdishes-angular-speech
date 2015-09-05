@@ -33,12 +33,13 @@
   }
 
   /* @ngInject */
-  function ApplicationRun($rootScope, $state, $stateParams, $injector) {
+  function ApplicationRun($rootScope, $state, $stateParams, $injector, FSYS) {
     // TEST ONLY
     window.$rootScope = $rootScope;
     window.$injector = $injector;
     window.$state = $state;
 
+    $rootScope.deployed = FSYS.DEPLOYED_TS;
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
   }

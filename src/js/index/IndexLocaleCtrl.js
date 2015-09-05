@@ -10,7 +10,7 @@
       },
       views: {
         'main@': {
-          templateUrl: '/partials/index/Index.html',
+          templateUrl: '/partials/index/IndexLocale.html',
           controller: 'IndexLocaleCtrl'
         }
       }

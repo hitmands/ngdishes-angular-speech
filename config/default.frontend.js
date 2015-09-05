@@ -1,10 +1,10 @@
 module.exports = function() {
   'use strict';
 
+  var ngMainModule = "NgDishes";
+
   var _ts = Date.now();
   var path = require('path');
-
-  var ngMainModule = "AngularStarterKit";
 
   var src = "./src/";
   var dest = "./public/";

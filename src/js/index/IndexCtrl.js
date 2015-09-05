@@ -10,7 +10,7 @@
       },
       views: {
         'main@': {
-          templateUrl: '/partials/main-base.html',
+          templateUrl: '/partials/index/Index.html',
           controller: 'IndexCtrl'
         }
       }
