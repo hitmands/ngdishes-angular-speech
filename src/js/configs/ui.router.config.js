@@ -2,7 +2,7 @@
 
   /* @ngInject */
   function UiRouterConfig($urlRouterProvider) {
-    $urlRouterProvider.rule(function ($injector, $location) {
+    $urlRouterProvider.rule(function($injector, $location) {
       var path = $location.url();
 
       if (path[path.length - 1] === '/' || path.indexOf('/?') > -1) {

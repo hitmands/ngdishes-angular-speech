@@ -6,7 +6,7 @@
 
     var localizedApp = {
       name: 'app.locale',
-      url: "{iso:"+ isoList.join('|') +"}/",
+      url: "{iso:" + isoList.join('|') + "}/",
       abstract: true,
       resolve: {
         currentLocale: /* @ngInject */ function($stateParams, I18n, $state, $log) {

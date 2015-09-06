@@ -95,7 +95,7 @@
         };
 
         /**
-         * If param given returns Object|null, otherwise returns the whole list of supported languages;
+         * If param given returns Object|null, otherwise returns Array the whole list of supported languages;
          * @param {string} [iso = undefined]
          * returns {Object|Array<Object>|null};
          */
@@ -151,11 +151,9 @@
       }).call(this);
 
 
-      /**
-       * Handling $translateChangeSuccess and (re)configure the module
-       */
+      // Handling $translateChangeSuccess and (re)configure the module
       $rootScope.$on('$translateChangeSuccess', function(event, locale) {
-        i18nService._configure(locale['language']);
+        i18nService._configure(locale.language);
       });
 
       return i18nService;

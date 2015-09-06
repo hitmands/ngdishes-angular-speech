@@ -47,6 +47,7 @@ module.exports = function(grunt) {
   ]);
 
   grunt.task.registerTask('angular', [
+    'jscs',
     'uglify:development',
     'ngAnnotate',
     'jshint',
