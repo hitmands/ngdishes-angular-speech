@@ -6,16 +6,19 @@
   var Promise = require('bluebird');
   var db = path.join(__dirname, '..', 'data', '_db.json');
 
+  var ListCtrl = require( path.join(__dirname, 'ReadListCtrl') );
+  var SingleCtrl = require( path.join(__dirname, 'ReadSingleCtrl') );
+
   var readCollection = Promise.promisify(fs.readFile);
 
-  function ReadPostFoodCtrl(req, res) {
+  function ReadPostFoodCtrl(req, res, next) {
     var id = req.params.id;
     var isArray = _.isUndefined(id);
-    var totalPosts;
+    id = isArray ? null : Number(id);
 
-    id = isArray ? null : _.parseInt(req.params.id, 10);
+    var isIntId = (id % 1 === 0);
 
-    if(!isArray && _.isNaN(id)) {
+    if(!isArray && !isIntId) {
       return res.status(400).end();
     }
 
@@ -25,36 +28,25 @@
 
         return JSON.parse(data);
       })
-      .then(function(data) {
-        // Count Items
-        totalPosts = data.length;
+      .then(function(posts) {
+        res.results = {
+          items: posts,
+          length: posts.length
+        };
 
-        return data;
-      })
-      .then(function(data) {
-        if(!isArray) {
-          // (If isn't a Collection Query) Check if post exists;
-          return id <= data.length ? _.find(data, { "id": id }) : Promise.reject();
+        if(isArray) {
+          req.params.isArray = true;
+          req.params.id = void(0);
+          return ListCtrl;
         }
 
-        // (If is a Collection Query) return the whole collection;
-        return data;
+        req.params.id = id;
+        return SingleCtrl;
       })
-      .then(function(data) {
-
-        // Check if Object or Array are empty
-        return _.isEmpty(data) ? Promise.reject() : data;
+      .then(function(ctrl) {
+        return ctrl(req, res, next);
       })
-      .then(function(post) {
-
-        return res.status(200).json(post);
-      })
-      .catch(function() {
-        var status = isArray ? 204 : 404;
-
-        return res.status(status).end();
-      })
-    ;
+      ;
 
   }
 
