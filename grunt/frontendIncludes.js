@@ -16,7 +16,6 @@ module.exports = function(grunt, options) {
   var build = frontend.build;
   var htmlUtils = require(__dirname + '/helpers/HtmlUtils.js');
   var buster = require(__dirname + '/helpers/CacheBuster.js')(frontend);
-  var productionCacheBuster = frontend.cacheBuster.pathMode ? buster.toPath : buster.toQueryString;
   var favicons = [
     '<link rel="icon" href="'+ buster.toQueryString('/images/favicon.ico') +'" type="image/x-icon">'
   ].join('\n');
@@ -34,15 +33,14 @@ module.exports = function(grunt, options) {
      */
     (function() {
       var tpl = "";
-      var buster = productionCacheBuster;
 
       tpl += favicons;
 
       if(vendor.modernizrMin) {
-        tpl += htmlUtils.tagScript( buster(stripSrcDir( vendor.modernizrMin )) );
+        tpl += htmlUtils.tagScript( buster.toQueryString(stripSrcDir( vendor.modernizrMin )) );
       }
 
-      tpl += htmlUtils.tagCss( buster(stripPublicDir( build.cssMin )) );
+      tpl += htmlUtils.tagCss( grunt.template.process(stripPublicDir( build.cssMin )) );
 
       htmlPartials.push({
         path: frontend.cacheBuster.dest + 'head.pack' + frontend.cacheBuster.ext,
@@ -57,11 +55,10 @@ module.exports = function(grunt, options) {
     (function() {
 
       var tpl = "";
-      var buster = productionCacheBuster;
 
       tpl += START_CONDITIONAL_COMMENT;
 
-      tpl += htmlUtils.tagScript( buster(stripPublicDir(build.jsPack)) );
+      tpl += htmlUtils.tagScript( grunt.template.process(stripPublicDir(build.jsPack)) );
 
       tpl += END_CONDITIONAL_COMMENT;
 
@@ -77,23 +74,22 @@ module.exports = function(grunt, options) {
      */
     (function() {
       var tpl = "";
-      var buster = productionCacheBuster;
 
       tpl += favicons;
 
       if(vendor.modernizrMin) {
-        tpl += htmlUtils.tagScript( buster(stripSrcDir( vendor.modernizrMin )) );
+        tpl += htmlUtils.tagScript( buster.toQueryString(stripSrcDir( vendor.modernizrMin )) );
       }
 
-      tpl += htmlUtils.tagCss( buster(stripPublicDir( build.cssMin )) );
+      tpl += htmlUtils.tagCss( grunt.template.process(stripPublicDir( build.cssMin )) );
 
       tpl += START_CONDITIONAL_COMMENT;
 
-      tpl += htmlUtils.tagScript( buster(stripPublicDir(build.angularLib)) );
+      tpl += htmlUtils.tagScript( grunt.template.process(stripPublicDir(build.angularLib)) );
 
-      tpl += htmlUtils.tagScript( buster(stripPublicDir( vendor.angularMinDest )) );
+      tpl += htmlUtils.tagScript( grunt.template.process(stripPublicDir( vendor.angularMinDest )) );
 
-      tpl += htmlUtils.tagScript( buster(stripPublicDir(build.applicationLib)) );
+      tpl += htmlUtils.tagScript( grunt.template.process(stripPublicDir(build.applicationLib)) );
 
 
       tpl += END_CONDITIONAL_COMMENT;
@@ -111,12 +107,11 @@ module.exports = function(grunt, options) {
     (function() {
 
       var tpl = "";
-      var buster = productionCacheBuster;
 
       tpl += START_CONDITIONAL_COMMENT;
 
-      tpl += htmlUtils.tagScript( buster(stripPublicDir( build.jsMin )) );
-      tpl += htmlUtils.tagScript( buster(stripPublicDir( build.tpls )) );
+      tpl += htmlUtils.tagScript( grunt.template.process(stripPublicDir( build.jsMin )) );
+      tpl += htmlUtils.tagScript( grunt.template.process(stripPublicDir( build.tpls )) );
 
       tpl += END_CONDITIONAL_COMMENT;
 
@@ -136,7 +131,7 @@ module.exports = function(grunt, options) {
 
       tpl += START_CONDITIONAL_COMMENT + "\n";
 
-      tpl += htmlUtils.tagScript( stripPublicDir( build.js )) + "\n";
+      tpl += htmlUtils.tagScript( buster.toQueryString(stripPublicDir( build.js )) ) + "\n";
 
       tpl += END_CONDITIONAL_COMMENT + "\n\n";
 

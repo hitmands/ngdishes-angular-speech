@@ -12,13 +12,8 @@ module.exports = function(configs) {
     return _path + '?' + unique;
   }
 
-  function applyCacheBusterToPath(_path) {
-    return applyCacheBusterToQueryString(_path);
-  }
-
 
   return {
     toQueryString: applyCacheBusterToQueryString,
-    toPath: applyCacheBusterToPath
   };
 };

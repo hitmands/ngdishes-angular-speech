@@ -31,11 +31,20 @@ module.exports = function(grunt) {
     data: {
       "pkg" : pkg,
       "frontend" : frontendConfigs,
-      "ngFiles" : require('./grunt/helpers/NgFolderingPattern.js')(frontendConfigs)
+      "ngFiles" : require('./grunt/helpers/NgFolderingPattern.js')(frontendConfigs),
+      "uniq": frontendConfigs.cacheBuster.uniq
     }
   });
 
-  // Private Tasks
+
+    // Private Tasks
+
+
+  grunt.task.registerTask('default', 'Default Task', function() {
+    var uniq = grunt.template.process('<%= uniq %>');
+    console.log('start uniq: ', uniq, ' end uniq');
+  });
+
   grunt.task.registerTask('angularWatch', [
     'newer:uglify:development',
     'newer:ngAnnotate:modules',

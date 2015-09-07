@@ -33,7 +33,7 @@
     ;
 
 
-  module.exports = function IndexCtrl(req, res) {
+  function IndexCtrl(req, res) {
     var context = _.merge({}, defaultContext);
     var FSYS = {};
 
@@ -119,6 +119,8 @@
         return res.render(indexTemplate, context);
       })
       ;
-  };
+  }
 
+
+  module.exports = IndexCtrl;
 })();
