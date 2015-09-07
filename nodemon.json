@@ -1,6 +1,6 @@
 {
    "restartable": "rs",
-   "verbose": true,
+   "verbose": false,
    "ext": "ejs js json",
    "watch" : [
       "public/build/includes/**/*.*",
@@ -10,6 +10,5 @@
       "package.json"
    ],
    "env": {
-      "NODE_ENV": "production"
    }
 }

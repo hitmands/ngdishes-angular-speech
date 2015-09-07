@@ -35,7 +35,9 @@ $ grunt deployProd
 
 ##### Starting the server
 ```bash
-$ nodemoon server.js
+$ npm run development
+# or
+$ npm run production
 ```
 
 ##### Let's coding
