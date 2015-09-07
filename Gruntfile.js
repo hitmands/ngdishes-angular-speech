@@ -3,6 +3,7 @@ module.exports = function(grunt) {
 
   // TASKS
   grunt.task.registerTask('deploy', [
+    'apidoc:backend',
     'frontend'
   ]);
 

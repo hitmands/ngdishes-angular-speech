@@ -36,4 +36,6 @@ run.bat
 
 src/uploads/*
 !src/uploads/tmp/.gitkeep
-.gitkeep
+!.gitkeep
+
+backend/wiki

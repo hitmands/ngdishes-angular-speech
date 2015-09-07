@@ -7,7 +7,8 @@
       "backend/**/*.*",
       "modules/**/*.*",
       "config/**/*.*",
-      "package.json"
+      "package.json",
+      "server.js"
    ],
    "env": {
    }
