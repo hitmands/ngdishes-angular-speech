@@ -3,7 +3,6 @@
   /*jshint es5: true */
 
   var
-    isStatic = /^(\/)?(assets|build|images|fonts|vendor|partials)/i,
     NODE_ENV = process.env.NODE_ENV || 'development',
     IS_PRODUCTION = /^production$/i.test(NODE_ENV),
     registry = require('simple-registry'),
@@ -47,15 +46,7 @@
   }
 
   registry.set('frontendConfigs', frontendConfigs);
-
-  app.get('*', function(request, response, next) {
-    if(isStatic.test(request.originalUrl) && !fs.existsSync(request.originalUrl)) {
-      return response.status(404).end();
-    }
-
-    return next();
-  }, require(path.join(__dirname, 'backend', 'index', 'IndexCtrl.js')));
-
+  require(path.join(__dirname, 'backend', 'router'))(app);
 
   serverPort = app.get('port');
   server = app.listen(serverPort, function() {

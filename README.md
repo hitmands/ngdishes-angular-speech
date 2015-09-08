@@ -7,7 +7,7 @@ NB: [**NodeJS**](https://nodejs.org/en/) and [**GIT**](https://git-scm.com/) are
 
 ##### Install global dependencies (*administration permissions*)
 ```bash
-$ npm install -g grunt-cli bower nodemoon
+$ npm install -g grunt-cli bower nodemon
 ```
 
 ##### Cloning the repository
@@ -35,7 +35,9 @@ $ grunt deployProd
 
 ##### Starting the server
 ```bash
-$ nodemoon server.js
+$ npm run development
+# or
+$ npm run production
 ```
 
 ##### Let's coding
