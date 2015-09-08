@@ -31,9 +31,10 @@ module.exports = function(grunt, options) {
         spawn: false
       },
       files: [
-        frontend.ng.dir + '**/*.html',
         '!**/*.map',
-        './public/**/*.*'
+        frontend.ng.dir + '**/*.html',
+        './public/**/*.*',
+        './backend/**/*.ejs'
       ]
     }
   };

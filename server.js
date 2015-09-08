@@ -17,7 +17,10 @@
     server
     ;
 
-  var frontendConfigs = require(path.join(__dirname, 'config', 'default.frontend.js'));
+  var
+    isStatic = require(path.join(__dirname, 'backend', 'helpers', 'isStaticRequestMiddleware')),
+    frontendConfigs = require(path.join(__dirname, 'config', 'default.frontend.js'))
+    ;
 
 
   global.__appdir = __dirname;
@@ -28,14 +31,15 @@
   app
     .set('port', 3000)
     .set('view engine', 'ejs')
-    .use(device.capture({ parseUserAgent : true }))
     .use('/assets', express.static(path.join(__dirname, 'public')))
     .use('/build', express.static(path.join(__dirname, 'public', 'build')))
     .use('/images', express.static(path.join(__dirname, 'src', 'images')))
     .use('/fonts', express.static(path.join(__dirname, 'src', 'fonts')))
     .use('/vendor', express.static(path.join(__dirname, 'src', 'vendor')))
     .use('/partials', express.static(path.join(__dirname, 'src', 'js')))
-    .use(bodyParser.urlencoded({extended : true}))
+    .use(isStatic)
+    .use(device.capture({ parseUserAgent : true }))
+    .use(bodyParser.urlencoded({ extended : true }))
     .use(bodyParser.json())
   ;
 

@@ -9,7 +9,7 @@
     var method;
 
     if(!_.isString(basicAuth)) {
-      next();
+      return next();
     }
 
     Promise
