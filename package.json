@@ -1,12 +1,12 @@
 {
-  "name": "yoox-angular-speech",
+  "name": "ngdishes-angular-speech",
   "version": "1.0.0",
   "description": "A simple Angular 30' Speech",
   "main": "server.js",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/hitmands/yoox-angular-speech.git"
+    "url": "https://github.com/hitmands/ng-dishes-angular-speech.git"
   },
   "keywords": [
     "AngularJS",
@@ -21,9 +21,9 @@
   ],
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/hitmands/yoox-angular-speech/issues"
+    "url": "https://github.com/hitmands/ng-dishes-angular-speech/issues"
   },
-  "homepage": "https://github.com/hitmands/yoox-angular-speech",
+  "homepage": "https://github.com/hitmands/ng-dishes-angular-speech",
   "dependencies": {
     "bluebird": "^2.9.34",
     "body-parser": "^1.13.3",

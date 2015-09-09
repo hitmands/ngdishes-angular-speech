@@ -54,6 +54,6 @@
 
   serverPort = app.get('port');
   server = app.listen(serverPort, function() {
-    console.log('\nyoox-angular-speech,\n' + (process.env.NODE_ENV || 'Development') + ' Server listening on port:', serverPort, ' | ', Date(), '\n');
+    console.log('\nng-dishes-angular-speech,\n' + (process.env.NODE_ENV || 'Development') + ' Server listening on port:', serverPort, ' | ', Date(), '\n');
   });
 })();
