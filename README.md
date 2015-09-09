@@ -35,7 +35,7 @@ $ grunt deployProd
 
 ##### Starting the server
 ```bash
-$ npm run development
+$ npm start
 # or
 $ npm run production
 ```
@@ -44,6 +44,7 @@ $ npm run production
 ```bash
 $ grunt watch
 ```
+NB: **RESTFUL API INTERFACE** is documented at <packagePath>/backend/wiki/index.html
 
 ## Contributors
 [Giuseppe Mandato](http://github.com/hitmands)

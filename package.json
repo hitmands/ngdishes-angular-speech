@@ -13,7 +13,7 @@
     "Grunt Tools"
   ],
   "scripts": {
-    "development": "NODE_ENV=development nodemon server.js --verbose",
+    "start": "nodemon server.js --verbose",
     "production": "NODE_ENV=production nodemon server.js"
   },
   "authors": [

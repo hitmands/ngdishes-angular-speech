@@ -29,7 +29,7 @@
 
 
   app
-    .set('port', 3000)
+    .set('port', 3001)
     .set('view engine', 'ejs')
     .use('/assets', express.static(path.join(__dirname, 'public')))
     .use('/build', express.static(path.join(__dirname, 'public', 'build')))
