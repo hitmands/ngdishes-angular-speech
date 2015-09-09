@@ -10,7 +10,7 @@
     registry = require('simple-registry'),
     frontendConfigs = registry.get('frontendConfigs'),
 
-    indexTemplate = path.join(__dirname, 'Index.ejs'),
+    indexTemplate = path.join(__dirname, '..', 'views', 'Index.ejs'),
     staticResourcesDir = path.join(global.__appdir, 'public', 'build', 'includes'),
     ENCODING = 'UTF8',
 
@@ -29,7 +29,7 @@
    FOOTER_PACK = fs.readFileSync(path.join(staticResourcesDir, 'footer.pack.html'), ENCODING),
    /**/
 
-    BODY = fs.readFileSync(path.join(__dirname, '_body.ejs'), ENCODING)
+    BODY = fs.readFileSync(path.join(__dirname, '..', 'views', '_body.ejs'), ENCODING)
     ;
 
 

@@ -8,7 +8,7 @@
   var deleteCtrl = require( path.join(__dirname, 'controllers', 'DeleteCtrl') );
 
 
-  function testApiRoutes(app) {
+  function restaurantApiRoutes(app) {
 
     app
 
@@ -23,10 +23,10 @@
      * @api {get} /api/v1/json/:id
      * @apiGroup Restaurant
      * @apiVersion 1.0.0
-     * @apiDescription Returns a Item or Array of Items
+     * @apiDescription Returns an Item or Array of Items
 
      * @apiParam {int{1..}} [id]
-     * @apiSuccess {Object[]} Post Returns an Object or Array of Items
+     * @apiSuccess {Object[]} data Returns an Object or Array of Items
      */
       .get(readCtrl)
 
@@ -39,11 +39,11 @@
      * @apiHeader {String} Authorization Http Basic Access Authentication
      * @apiPermission admin
 
-     * @apiParam {Object} post The new Post Object
+     * @apiParam {Object} data The new Post Object
      * @apiParamExample {json} Request-Example:
      *  {
      *     "title": "Pizza Margherita",
-     *     "..." : "..."
+     *     "...": "..."
      *  }
 
      */
@@ -58,12 +58,12 @@
      * @apiHeader {String} Authorization Http Basic Access Authentication
      * @apiPermission admin
 
-     * @apiParam {int} id The id of the Item
-     * @apiParam {Object} post The updated data
+     * @apiParam {int{1..}} id The id of the Item
+     * @apiParam {Object} data The updated data
      * @apiParamExample {json} Request-Example:
      *  {
      *     "title": "Pizza Margherita"
-     *     "..." : "..."
+     *     "...": "..."
      *  }
 
      */
@@ -78,7 +78,7 @@
      * @apiHeader {String} Authorization Http Basic Access Authentication
      * @apiPermission admin
 
-     * @apiParam {int} id The id of the Item
+     * @apiParam {int{1..}} id The id of the Item
 
      */
       .delete(deleteCtrl)
@@ -86,5 +86,5 @@
 
   }
 
-  module.exports = testApiRoutes
+  module.exports = restaurantApiRoutes
 }).call(this);
