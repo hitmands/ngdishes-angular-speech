@@ -22,19 +22,27 @@ module.exports = function(options) {
   for(var i = 0; i < _modules.length; i++) {
     var _base = base + _modules[i] + '/';
 
-    result.push(_base + 'module.js');
-    result.push(_base + '**/models/**/*.js');
-    result.push(_base + '**/services/**/*.js');
-    result.push(_base + '**/directives/**/*.js');
-    result.push(_base + '**/*Config.js');
-    result.push(_base + '**/*Constant.js');
-    result.push(_base + '**/*Provider.js');
-    result.push(_base + '**/*Value.js');
-    result.push(_base + '**/*Service.js');
-    result.push(_base + '**/*Factory.js');
-    result.push(_base + '**/*Filter.js');
-    result.push(_base + '**/*Ctrl.js');
-    result.push(_base + '**/*Directive.js');
+    result.push(
+      _base + 'module.js',
+      _base + 'configs/**/*.js',
+      _base + '**/*Config.js',
+      _base + 'constants/**/*.js',
+      _base + '**/*Constant.js',
+      _base + 'providers/**/*.js',
+      _base + '**/*Provider.js',
+      _base + 'values/**/*.js',
+      _base + '**/*Value.js',
+      _base + 'services/**/*.js',
+      _base + '**/*Service.js',
+      _base + 'factories/**/*.js',
+      _base + '**/*Factory.js',
+      _base + 'filters/**/*.js',
+      _base + '**/*Filter.js',
+      _base + 'controllers/**/*.js',
+      _base + '**/*Ctrl.js',
+      _base + 'directives/**/*.js',
+      _base + '**/*Directive.js'
+    );
   }
 
   return result;

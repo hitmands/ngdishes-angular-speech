@@ -19,7 +19,9 @@
 
   var
     isStatic = require(path.join(__dirname, 'backend', 'helpers', 'isStaticRequestMiddleware')),
-    frontendConfigs = require(path.join(__dirname, 'config', 'default.frontend.js'))
+    frontendConfigs = require(path.join(__dirname, 'config',
+      (IS_PRODUCTION ? 'production' : 'default') + '.frontend.js')
+    )
     ;
 
 
@@ -45,15 +47,11 @@
 
   device.enableDeviceHelpers(app);
 
-  if(!IS_PRODUCTION) {
-    frontendConfigs = _.merge(frontendConfigs, require(path.join(__dirname, 'config', 'production.frontend.js')));
-  }
-
   registry.set('frontendConfigs', frontendConfigs);
   require(path.join(__dirname, 'backend', 'router'))(app);
 
   serverPort = app.get('port');
   server = app.listen(serverPort, function() {
-    console.log('\nng-dishes-angular-speech,\n' + (process.env.NODE_ENV || 'Development') + ' Server listening on port:', serverPort, ' | ', Date(), '\n');
+    console.log('\nng-dishes-angular-speech,\n' + (NODE_ENV || 'Development') + ' Server listening on port:', serverPort, ' | ', Date(), '\n');
   });
 })();
