@@ -48,9 +48,12 @@
     "jit-grunt": "^0.9.1",
     "load-grunt-config": "^0.17.2",
     "lodash": "^3.10.1",
+    "moment": "^2.10.6",
     "node-sass": "^3.3.2",
     "simple-registry": "^0.2.2",
+    "slug": "^0.9.1",
     "useragent": "^2.1.7",
     "xlsx": "^0.8.0"
-  }
+  },
+  "devDependencies": {}
 }

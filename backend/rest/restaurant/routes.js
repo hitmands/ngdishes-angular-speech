@@ -13,20 +13,24 @@
     app
 
     /**
-     * @apiGroup Restaurant
+     * @apiGroup Restaurant/Dishes
      * @apiDescription /api/<version>/<format>/<group>
-     * @apiSampleRequest /api/v1/json/restaurant
+     * @apiSampleRequest /api/v1/json/restaurant/dishes
      */
-      .route('/api/v1/json/restaurant/:id?')
+      .route('/api/v1/json/restaurant/dishes/:search?')
 
     /**
-     * @api {get} /api/v1/json/:id
+     * @api {get} /api/v1/json/:idOrSlug
      * @apiGroup Restaurant
      * @apiVersion 1.0.0
-     * @apiDescription Returns an Item or Array of Items
+     * @apiDescription Returns an Object or Array
 
      * @apiParam {int{1..}} [id]
-     * @apiSuccess {Object[]} data Returns an Object or Array of Items
+     * @apiParam {string{1..}} [slug]
+     * @apiParam {int} [page] Query string parameter, ignored if idOrSlug is provided;
+     * @apiParam {int} [itemsPerPage = 20] Query string parameter, ignored if idOrSlug is provided;
+     * @apiParam {int} [showFullInfo] Query string parameter, ignored if idOrSlug is provided;
+     * @apiSuccess {Object[]} data
      */
       .get(readCtrl)
 

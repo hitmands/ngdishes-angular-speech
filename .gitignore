@@ -40,3 +40,7 @@ src/uploads/*
 !.gitkeep
 
 backend/wiki
+
+backend/rest/restaurant/data/_dbModifier.js
+
+backend/rest/restaurant/data/test.json

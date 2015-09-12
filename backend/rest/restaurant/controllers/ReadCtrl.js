@@ -4,47 +4,49 @@
   var _ = require('lodash');
   var path = require('path');
   var Promise = require('bluebird');
-  var db = path.join(__dirname, '..', 'data', '_db.json');
 
   var ListCtrl = require( path.join(__dirname, 'ReadListCtrl') );
-  var SingleCtrl = require( path.join(__dirname, 'ReadSingleCtrl') );
-
-  var readCollection = Promise.promisify(fs.readFile);
+  var SingleByIdCtrl = require( path.join(__dirname, 'ReadSingleByIdCtrl') );
+  var SingleBySlugCtrl = require( path.join(__dirname, 'ReadSingleBySlugCtrl') );
 
   function ReadPostFoodCtrl(req, res, next) {
-    var id = req.params.id;
-    var isArray = _.isUndefined(id);
-    id = isArray ? null : Number(id);
+    var search = req.params.search;
+    var page = Number(req.query.page);
+    var itemsPerPage = Number(req.query.itemsPerPage);
+    var showFullInfo = (req.query.showFullInfo === 'true');
 
+    delete req.params.search;
+    delete req.query.page;
+    delete req.query.itemsPerPage;
+    delete req.query.showFullInfo;
+
+    var slug = String(search);
+    var id = Number(search);
+
+    var isArray = _.isUndefined(search);
     var isIntId = (id % 1 === 0);
 
-    if(!isArray && !isIntId) {
-      return res.status(400).end();
-    }
-
-    // Simulate a Database Query
-    return readCollection(db, 'UTF8')
-      .then(function(data) {
-
-        return JSON.parse(data);
-      })
-      .then(function(posts) {
-        res.results = {
-          items: posts,
-          length: posts.length
-        };
-
+    return Promise
+      .resolve()
+      .then(function() {
         if(isArray) {
+          req.params.page = page || -1;
+          req.params.itemsPerPage = itemsPerPage || 20;
           req.params.isArray = true;
-          req.params.id = void(0);
+          req.params.showFullInfo = showFullInfo;
           return ListCtrl;
         }
 
-        req.params.id = id;
-        return SingleCtrl;
+        if(isIntId) {
+          req.params.id = id;
+          return SingleByIdCtrl;
+        }
+
+        req.params.slug = slug;
+        return SingleBySlugCtrl;
       })
-      .then(function(ctrl) {
-        return ctrl(req, res, next);
+      .then(function(controller) {
+        return controller(req, res, next);
       })
       ;
 
