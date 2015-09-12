@@ -4,9 +4,11 @@
   var path = require('path');
   var Promise = require('bluebird');
   var _ = require('lodash');
+  var fs = require('fs');
   var _db = path.join(__dirname, '..', 'data', '_db.dishes.json');
   var data = require(_db);
   var moment = require('moment');
+  var slug = require('slug');
 
   function DishesManager(data) {
     this._data = data;
@@ -28,6 +30,7 @@
     this._data.push = _.merge(data, {
       id : (this.count(true) + 1),
       pubdate : moment().format(),
+      slug: slug(data.title),
       revisions : []
     });
 
@@ -37,7 +40,7 @@
   };
 
   DishesManager.prototype.updateItem = function(id, data) {
-    var index = _.findIndex({id : id});
+    var index = _.findIndex(this._data, {id : id});
 
     this._data[index] = _.merge(this._data[index], data);
     this._data[index].revisions.push({
@@ -49,7 +52,7 @@
   };
 
   DishesManager.prototype.deleteItem = function(id) {
-    var index = _.findIndex({id : id});
+    var index = _.findIndex(this._data, {id : id});
 
     this._data[index].deleted = true;
     this._data[index].revisions.push({
@@ -135,7 +138,7 @@
     var self = this;
 
     return new Promise(function(resolve, reject) {
-      fs.writeFile(_db, JSON.stringify(this._data, null, 3), function(err) {
+      fs.writeFile(_db, JSON.stringify(self._data, null, 3), function(err) {
         if(err) {
           return reject(err);
         }
