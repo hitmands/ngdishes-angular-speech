@@ -17,11 +17,15 @@ module.exports = function(grunt) {
   var _ = require('lodash');
   var ENV_PRODUCTION = /^production$/i.test(grunt.option('ENV'));
   var pkg = grunt.file.readJSON('./package.json');
-  var frontendConfigs = require('./config/default.frontend.js');
+  var frontendConfigs = 'default';
+
   if(ENV_PRODUCTION) {
-    frontendConfigs = _.merge(frontendConfigs, require('./config/production.frontend.js'));
+    frontendConfigs = 'production';
     grunt.log.ok('Grunt Running in PRODUCTION environment');
   }
+
+  frontendConfigs = require('./config/' + frontendConfigs + '.frontend.js');
+
   require('load-grunt-config')(grunt, {
     init: true,
     jitGrunt: {
@@ -38,9 +42,7 @@ module.exports = function(grunt) {
   });
 
 
-    // Private Tasks
-
-
+  // Private Tasks
   grunt.task.registerTask('default', 'Default Task', function() {
     var uniq = grunt.template.process('<%= uniq %>');
     console.log('start uniq: ', uniq, ' end uniq');

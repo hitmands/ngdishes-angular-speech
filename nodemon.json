@@ -2,14 +2,23 @@
    "restartable": "rs",
    "verbose": false,
    "ext": "ejs js json",
+   "ignore" : [
+      ".editorconfig",
+      ".gitignore",
+      ".jshintignore",
+      ".bowerrc",
+      "logs/**/*.*"
+   ],
    "watch" : [
       "public/build/includes/**/*.*",
       "backend/**/*.*",
       "modules/**/*.*",
       "config/**/*.*",
       "package.json",
+      "nodemon.json",
       "server.js"
    ],
    "env": {
+      "NODE_ENV" : "development"
    }
 }

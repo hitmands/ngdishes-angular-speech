@@ -1,9 +1,14 @@
 module.exports = function() {
   'use strict';
-  var dest = "./public/";
-  var src = "./src/";
-  var build = dest + "build/";
-  var vendor = src + "vendor/";
+
+  var _ = require('lodash');
+  var path = require('path');
+  var _configs = require(path.join(__dirname, 'default.frontend.js'));
+
+  var dest = _configs.dest;
+  var src = _configs.src;
+  var build = _configs.build;
+  var vendor = _configs.vendor;
 
   var configs = {
     ENV: 'production',
@@ -23,5 +28,6 @@ module.exports = function() {
     angularMinDest : build + "angular.min.<%= uniq %>.js"
   };
 
+  configs = _.merge(_configs, configs);
   return configs;
 }();

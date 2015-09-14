@@ -14,7 +14,8 @@
   ],
   "scripts": {
     "start": "nodemon server.js --verbose",
-    "production": "NODE_ENV=production nodemon server.js"
+    "production": "NODE_ENV=production nodemon server.js",
+    "productionWin": "set NODE_ENV=production nodemon server.js"
   },
   "authors": [
     "Giuseppe Mandato <gius.mand.developer@gmail.com>"

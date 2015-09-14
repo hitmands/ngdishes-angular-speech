@@ -15,8 +15,6 @@
     FSYS.APP
   ];
 
-//  var applicationConfigConstant = window[".auth"] || {};
-
   angular
     .module(FSYS.APP + '.auth', dependencies)
     .constant('INIT_SESSION', FSYS.session)
