@@ -2,17 +2,18 @@ module.exports = function(grunt, options) {
   'use strict';
 
   var frontend = options.frontend;
+  var eyeglass = require('eyeglass');
 
   var task = {
     options: {
 
     },
     development: {
-      options: {
+      options: eyeglass.decorate({
         indentedSyntax: true,
         outputStyle: 'nested',
         sourceMap: true
-      },
+      }),
       files: [
         {
           src: frontend.css.input,
@@ -21,11 +22,12 @@ module.exports = function(grunt, options) {
       ]
     },
     production: {
-      options: {
+      options: eyeglass.decorate({
         indentedSyntax: false,
         outputStyle: 'compressed',
-        sourceMap: false
-      },
+        sourceMap: false,
+        cache: false
+      }),
       files: [
         {
           src: frontend.css.input,
