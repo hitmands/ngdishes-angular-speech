@@ -15,9 +15,22 @@
          "uid": "55ede2f94d6f635dda661b00"
       },
       "thumbnail": "http://lorempixel.com/800/450/food/?id=1",
-      "deleted": false,
+      "deleted": true,
       "slug": "dextroamphetamine-saccharate-amphetamine-aspartate-dextroamphetamine-sulfate-and-amphetamine-sulfate",
-      "revisions": []
+      "revisions": [
+         {
+            "date": "2015-09-13T14:15:17+02:00",
+            "action": "delete"
+         },
+         {
+            "date": "2015-09-13T14:15:23+02:00",
+            "action": "delete"
+         },
+         {
+            "date": "2015-09-13T14:16:53+02:00",
+            "action": "delete"
+         }
+      ]
    },
    {
       "id": 2,

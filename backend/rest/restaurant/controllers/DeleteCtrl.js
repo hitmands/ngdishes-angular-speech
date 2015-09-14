@@ -12,8 +12,13 @@
       .resolve()
       .then(function() {
         if(id % 1 !== 0) {
-          return Promise.reject();
+          console.log('21');
+          return Promise.reject({ status: 400 });
         }
+
+        return manager.findById(id);
+      })
+      .then(function() {
 
         return manager.deleteItem(id);
       })
@@ -26,8 +31,9 @@
         return res.status(200).end();
       })
       .catch(function(err) {
-        console.log(id, err);
-        return res.status(400).end();
+        var status = err && err.status || 404;
+
+        return res.status(status).end();
       })
       ;
   }

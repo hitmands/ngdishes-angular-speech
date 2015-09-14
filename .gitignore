@@ -1,3 +1,5 @@
+!.gitkeep
+
 .sass-cache
 .eyeglass_cache
 .idea
@@ -35,12 +37,9 @@ dump.rdb
 utils/excel/~$i18n.xlsx
 run.bat
 
-src/uploads/*
 !src/uploads/tmp/.gitkeep
-!.gitkeep
+src/uploads/*
 
 backend/wiki
 
-backend/rest/restaurant/data/_dbModifier.js
-
-backend/rest/restaurant/data/test.json
+backend/rest/restaurant/data/*

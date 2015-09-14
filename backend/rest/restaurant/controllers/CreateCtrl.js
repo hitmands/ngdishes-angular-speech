@@ -5,7 +5,6 @@
   var manager = require(path.join(__dirname, '..', 'services', 'DishesManager.js'));
 
   function CreatePostFoodCtrl(req, res) {
-    var id = Number(req.params.search);
 
     return res.json({
       message: "under development",
