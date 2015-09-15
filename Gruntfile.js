@@ -76,6 +76,7 @@ module.exports = function(grunt) {
     'clean:frontendPublicDir',
     'angular',
     'sass',
+    'postcss',
     'concat',
     'frontendIncludes'
   ]);

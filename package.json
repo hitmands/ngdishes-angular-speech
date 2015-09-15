@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/hitmands/ng-dishes-angular-speech",
   "dependencies": {
+    "autoprefixer": "^6.0.2",
     "bluebird": "^2.9.34",
     "body-parser": "^1.13.3",
     "ejs": "^2.3.3",
@@ -43,6 +44,7 @@
     "grunt-jscs": "^2.1.0",
     "grunt-newer": "^1.1.1",
     "grunt-ng-annotate": "^1.0.1",
+    "grunt-postcss": "^0.6.0",
     "grunt-sass": "^1.0.0",
     "grunt-shell": "^1.1.2",
     "jit-grunt": "^0.9.1",
