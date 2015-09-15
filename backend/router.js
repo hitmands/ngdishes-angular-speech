@@ -14,6 +14,5 @@
     require(path.join(__dirname, 'index', 'router'))(app);
   }
 
-
   module.exports = backendRouter;
 }).call(this);

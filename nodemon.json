@@ -1,22 +1,22 @@
 {
    "restartable": "rs",
    "verbose": false,
-   "ext": "ejs js json",
    "ignore" : [
-      ".editorconfig",
-      ".gitignore",
-      ".jshintignore",
+      ".eyeglass_cache",
+      ".sass-cache",
+      "grunt",
+      "logs",
+      "node_modules",
+      "public",
+      "src",
+      ".git",
+      ".idea",
       ".bowerrc",
-      "logs/**/*.*"
-   ],
-   "watch" : [
-      "public/build/includes/**/*.*",
-      "backend/**/*.*",
-      "modules/**/*.*",
-      "config/**/*.*",
-      "package.json",
-      "nodemon.json",
-      "server.js"
+      ".editorconfig",
+      ".jshintignore",
+      ".gitignore",
+      "Gruntfile.js",
+      "README.md"
    ],
    "env": {
       "NODE_ENV" : "development"
