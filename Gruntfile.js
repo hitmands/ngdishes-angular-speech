@@ -44,8 +44,7 @@ module.exports = function(grunt) {
 
   // Private Tasks
   grunt.task.registerTask('default', 'Default Task', function() {
-    var uniq = grunt.template.process('<%= uniq %>');
-    console.log('start uniq: ', uniq, ' end uniq');
+    console.log('There isn\'t any default task');
   });
 
   grunt.task.registerTask('angularWatch', [

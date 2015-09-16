@@ -7,21 +7,18 @@ module.exports = function(grunt, options) {
     angular: {
       tasks: ['angularWatch'],
       files: [
-        '!**/*.map',
         frontend.ng.dir + '**/*.js'
       ]
     },
     scss: {
       tasks: ['sassWatch'],
       files: [
-        '!**/*.map',
         frontend.css.dir + '**/*.scss'
       ]
     },
     i18n: {
       tasks: ['angularI18n'],
       files: [
-        '!**/*.map',
         frontend.i18n.input
       ]
     },
@@ -31,9 +28,8 @@ module.exports = function(grunt, options) {
         spawn: false
       },
       files: [
-        '!**/*.map',
         frontend.ng.dir + '**/*.html',
-        './public/**/*.*',
+        './public/**/*.{html,js,css,json}',
         './backend/**/*.ejs'
       ]
     }
