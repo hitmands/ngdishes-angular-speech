@@ -46,8 +46,7 @@ $ grunt watch
 ```
 
 ---
-NB: **RESTFUL API INTERFACE** is documented at packagePath/backend/wiki/index.html
-NB: **Bower runs on git protocol, you probably need to switch over https, [read more](http://stackoverflow.com/questions/4891527/git-protocol-blocked-by-company-how-can-i-get-around-that)**
+NB: **RESTFUL API INTERFACE** is documented at packagePath/backend/wiki/index.html, **Bower runs on git protocol, you probably need to switch over https, [read more](http://stackoverflow.com/questions/4891527/git-protocol-blocked-by-company-how-can-i-get-around-that)**
 
 ## Contributors
 [Giuseppe Mandato](http://github.com/hitmands)
