@@ -18,6 +18,10 @@ module.exports = function(grunt, options) {
         {
           src: frontend.css.input,
           dest: frontend.build.css
+        },
+        {
+          src: frontend.css.framework,
+          dest: frontend.build.cssLib
         }
       ]
     },
@@ -32,6 +36,10 @@ module.exports = function(grunt, options) {
         {
           src: frontend.css.input,
           dest: frontend.build.cssMin
+        },
+        {
+          src: frontend.css.framework,
+          dest: frontend.build.cssLib
         }
       ]
     }

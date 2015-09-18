@@ -41,6 +41,7 @@ module.exports = function() {
     jsPack : build + "application.pack.min.js",
     tpls : build + "application.tpls.min.js",
     css : build + "application.css",
+    cssLib : build + "bootstrap.css",
     cssMin : build + "application.min.css"
   };
 
@@ -58,7 +59,8 @@ module.exports = function() {
 
   configs.css = {
     dir : scss,
-    input : scss + "application.scss"
+    input : scss + "application.scss",
+    framework: scss + "bootstrap.scss"
   };
 
   configs.ng = {

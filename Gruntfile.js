@@ -54,7 +54,8 @@ module.exports = function(grunt) {
   ]);
 
   grunt.task.registerTask('sassWatch', [
-    'newer:sass:development'
+    'newer:sass:development',
+    'newer:postcss:development'
   ]);
 
   grunt.task.registerTask('angular', [
@@ -75,7 +76,7 @@ module.exports = function(grunt) {
     'clean:frontendPublicDir',
     'angular',
     'sass',
-    'postcss',
+    'postcss:deploy',
     'concat',
     'frontendIncludes'
   ]);

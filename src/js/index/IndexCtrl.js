@@ -24,6 +24,7 @@
   function IndexCtrl() {
 //  var vm = this;
 
+
   }
 
   angular

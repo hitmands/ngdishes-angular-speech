@@ -154,6 +154,7 @@ module.exports = function(grunt, options) {
 
       tpl += favicons + '\n';
 
+      tpl += htmlUtils.tagCss( buster.toQueryString(stripPublicDir( build.cssLib )) ) + "\n";
       tpl += htmlUtils.tagCss( buster.toQueryString(stripPublicDir( build.css )) ) + "\n";
 
       tpl += START_CONDITIONAL_COMMENT + "\n";

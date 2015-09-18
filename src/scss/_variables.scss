@@ -4,7 +4,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
-$bootstrap-sass-asset-helper: false !default;
+$bootstrap-sass-asset-helper: false;
 //
 // Variables
 // --------------------------------------------------
@@ -876,3 +876,8 @@ $page-header-border-color:    $gray-lighter !default;
 $dl-horizontal-offset:        $component-offset-horizontal !default;
 //** Horizontal line color.
 $hr-border:                   $gray-lighter !default;
+
+
+
+// Shared Imports between application.css and bootstrap.css
+@import "bootstrap/mixins";

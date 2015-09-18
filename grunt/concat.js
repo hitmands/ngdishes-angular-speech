@@ -54,7 +54,7 @@ module.exports = function(grunt, options) {
       files: [
         {
           nonull: true,
-          src: frontend.build.cssMin,
+          src: [frontend.build.cssLib, frontend.build.cssMin],
           dest: frontend.build.cssMin
         },
         {
