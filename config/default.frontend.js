@@ -71,7 +71,8 @@ module.exports = function() {
       "errors",
       "i18n",
       "auth",
-      "index"
+      "index",
+      "restaurant"
     ]
   };
 

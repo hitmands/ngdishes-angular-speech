@@ -38,7 +38,7 @@
         {
             "id": "548d279c-c44b-e51f-2352-d845d55d5775",
             "headers": "Authorization: Basic aGl0bWFuZHM6cGFzc3dvcmQ=\nContent-Type: application/json\n",
-            "url": "http://localhost:3001/api/v1/json/restaurant/",
+            "url": "http://localhost:3001/api/v1/json/restaurant/dishes/",
             "preRequestScript": "",
             "pathVariables": {},
             "method": "POST",
@@ -58,7 +58,7 @@
         {
             "id": "6340690f-59c0-2d67-c4f3-1ee7a771e10e",
             "headers": "Authorization: Basic aGl0bWFuZHM6cGFzc3dvcmQ=\n",
-            "url": "http://localhost:3001/api/v1/json/restaurant/1",
+            "url": "http://localhost:3001/api/v1/json/restaurant/dishes/1",
             "preRequestScript": "",
             "pathVariables": {},
             "method": "PUT",
@@ -78,7 +78,7 @@
         {
             "id": "c4ab77c0-2a9b-d18c-5de0-cfe652a766f4",
             "headers": "",
-            "url": "http://localhost:3001/api/v1/json/restaurant/76",
+            "url": "http://localhost:3001/api/v1/json/restaurant/dishes/76",
             "preRequestScript": "",
             "pathVariables": {},
             "method": "GET",
@@ -97,7 +97,7 @@
         {
             "id": "efd43c8d-d491-0cf6-102f-d1c3783d91eb",
             "headers": "",
-            "url": "http://localhost:3001/api/v1/json/restaurant/",
+            "url": "http://localhost:3001/api/v1/json/restaurant/dishes/",
             "preRequestScript": "",
             "pathVariables": {},
             "method": "GET",

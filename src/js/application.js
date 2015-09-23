@@ -55,6 +55,7 @@
     'ui.bootstrap',
     FSYS.APP + '.auth',
     FSYS.APP + '.i18n',
+    FSYS.APP + '.restaurant',
     FSYS.APP + '.errors'
   ];
 

@@ -4,6 +4,8 @@ module.exports = function(grunt, options) {
   var frontend = options.frontend;
   var eyeglass = require('eyeglass');
 
+  eyeglass.enableImportOnce = false;
+
   var task = {
     options: {
 
@@ -12,16 +14,13 @@ module.exports = function(grunt, options) {
       options: eyeglass.decorate({
         indentedSyntax: true,
         outputStyle: 'nested',
+        enableImportOnce: false,
         sourceMap: true
       }),
       files: [
         {
-          src: frontend.css.input,
+          src: [frontend.css.framework, frontend.css.input],
           dest: frontend.build.css
-        },
-        {
-          src: frontend.css.framework,
-          dest: frontend.build.cssLib
         }
       ]
     },
@@ -34,12 +33,8 @@ module.exports = function(grunt, options) {
       }),
       files: [
         {
-          src: frontend.css.input,
+          src: [frontend.css.framework, frontend.css.input],
           dest: frontend.build.cssMin
-        },
-        {
-          src: frontend.css.framework,
-          dest: frontend.build.cssLib
         }
       ]
     }
